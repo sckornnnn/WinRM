@@ -1,10 +1,6 @@
-- name: Download KB
-  win_get_url:
-    url: http://172.20.21.152:8080/win2012R2/Windows8.1-KB3172729-x64.msu
-    dest: C:\Windows8.1-KB3172729-x64.msu
-- name: Install hotfix validating KB
-  win_hotfix:
-    hotfix_kb: KB3172729
-    source: C:\Windows8.1-KB3172729-x64.msu
-    state: present
-  register: hotfix_install
+---
+- name: Install SCAP Compliance Checker
+  win_package:
+    path: http://172.20.21.152:8080/scap/scc-5.8_Windows/SCC_5.8_Windows_Setup.exe
+    product_id: '{3E36BD4A-8991-401B-95EA-CFE0AD8D51DB}-5.8_is1'
+    arguments: /SILENT
