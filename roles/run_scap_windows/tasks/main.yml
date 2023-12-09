@@ -9,9 +9,9 @@
     path: C:\Users\ansible
     state: directory
 - name: Create Compliance Report
-  win_command: cscc.exe -o C:\Users\Administrator\SCC\Config\5.7.1_options.xml
+  win_command: cscc.exe -o Program Files\SCAP Compliance Checker 5.8\options.xml
   args:
-    chdir: C:\Program Files\SCAP Compliance Checker 5.7.1
+    chdir: C:\Program Files\SCAP Compliance Checker 5.8
 
 - name: Find files with .html
   win_find:   
