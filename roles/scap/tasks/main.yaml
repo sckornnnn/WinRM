@@ -1,0 +1,10 @@
+- name: Download KB
+  win_get_url:
+    url: http://172.20.21.152:8080/win2012R2/Windows8.1-KB3172729-x64.msu
+    dest: C:\Windows8.1-KB3172729-x64.msu
+- name: Install hotfix validating KB
+  win_hotfix:
+    hotfix_kb: KB3172729
+    source: C:\Windows8.1-KB3172729-x64.msu
+    state: present
+  register: hotfix_install
