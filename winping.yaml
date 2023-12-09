@@ -1,0 +1,6 @@
+---
+- name: Linux Distribution Check
+  hosts: all
+  become_method: runas
+  roles:
+    - winping
