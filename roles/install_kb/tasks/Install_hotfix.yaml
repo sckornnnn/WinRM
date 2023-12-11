@@ -1,0 +1,6 @@
+- name: Install hotfix validating KB
+  win_hotfix:
+#    hotfix_kb: KB3172729
+    source: C:\{{ item }}
+    state: present
+#  register: hotfix_install
