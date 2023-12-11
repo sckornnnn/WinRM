@@ -19,3 +19,6 @@
   with_items:
      - "{{ kb_list }}"
   register: hotfix_install
+
+- ansible.builtin.reboot:
+  when: hotfix_install.reboot_required
