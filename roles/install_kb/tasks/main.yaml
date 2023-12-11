@@ -2,7 +2,7 @@
   win_get_url:
     url: http://172.20.21.152:8080/win2012R2/Windows8.1-KB3172729-x64.msu
     dest: '{{ item }}'
-  with_item
+  with_item:
   - C:\Windows8.1-KB3172729-x64.msu
 #- name: Install hotfix validating KB
 #  win_hotfix:
