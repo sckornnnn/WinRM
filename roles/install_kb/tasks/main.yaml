@@ -1,4 +1,4 @@
-- include_tasks: test.yml
+- include: download_kb.yaml
 with_items:
   - Windows8.1-KB3172729-x64.msu
   - windows8.1-kb3019978-x64_80f7b7e16ab31192c6a75ab632db254df8c83a2e.msu
