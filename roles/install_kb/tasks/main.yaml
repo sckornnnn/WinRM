@@ -8,6 +8,10 @@
   win_get_url:
     url: http://172.20.21.152:8080/win2012R2/{{ sites }}
     dest: C:\{{ sites }}
+  loop: "{{ sites }}"
+  loop_control:
+    loop_var: site
+    
 #- name: Install hotfix validating KB
 #  win_hotfix:
 #    hotfix_kb: KB3172729
