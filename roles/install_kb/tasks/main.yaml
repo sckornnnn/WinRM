@@ -20,5 +20,5 @@
      - "{{ kb_list }}"
   register: hotfix_install
 
-- ansible.builtin.reboot:
+- ansible.windows.win_reboot:
   when: hotfix_install.reboot_required
