@@ -1,3 +1,6 @@
-- name: Reboot machine and send a message
-  aansible.windows.win_reboot:
-    msg: "Rebooting machine in 5 seconds"
+---
+- name: Linux Distribution Check
+  hosts: all
+  become_method: runas
+  roles:
+    - win_reboot
