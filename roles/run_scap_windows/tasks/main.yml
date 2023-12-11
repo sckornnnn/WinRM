@@ -23,17 +23,17 @@
   with_items:
        - "{{ file.files.0.filename }}"
 
-- name: Copy files to EE
-  ansible.builtin.fetch:
-    src: "C:\\Users\\ansible\\{{ item }}"
-    dest: "/tmp/{{ inventory_hostname }}/"
-    flat: true
-  loop:
-    - "{{ file.files.0.filename }}"
+#- name: Copy files to EE
+#  ansible.builtin.fetch:
+#    src: "C:\\Users\\ansible\\{{ item }}"
+#    dest: "/tmp/{{ inventory_hostname }}/"
+#    flat: true
+#  loop:
+#    - "{{ file.files.0.filename }}"
 
-- name: Copy folders to reports host
-  ansible.builtin.copy:
-    src: "/tmp/{{ inventory_hostname }}"
-    dest: /home/awx/winreports/SCAP_Compliance_Checker
-    mode: '0644'
-  delegate_to: localhost
+#- name: Copy folders to reports host
+#  ansible.builtin.copy:
+#    src: "/tmp/{{ inventory_hostname }}"
+#    dest: /home/awx/winreports/SCAP_Compliance_Checker
+#    mode: '0644'
+#  delegate_to: localhost
