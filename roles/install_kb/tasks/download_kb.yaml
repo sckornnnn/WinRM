@@ -1,4 +1,4 @@
 - name: Download hotfix  KB
   win_get_url:
-    url: http://172.20.21.152:8080/win2012R2/{{ sites }}
-    dest: C:\{{ sites }}
+    url: http://172.20.21.152:8080/win2012R2/{{ item }}
+    dest: C:\{{ item }}
