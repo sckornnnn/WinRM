@@ -1,5 +1,6 @@
 ---
 collections:
 - name: win_hotfix
-  source: https://github.com/ansible-collections/community.windows
+#  source: https://github.com/ansible-collections/community.windows
+  source: https://galaxy.ansible.com/community.windows
   type: git
