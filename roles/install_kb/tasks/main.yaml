@@ -10,4 +10,10 @@
     dest: C:\{{ item }}
   with_items:
      - "{{ kb_list }}"
-  register: output
+- name: Install hotfix no validating KB
+  win_hotfix:
+#    hotfix_kb: KB3172729
+    source: C:\{{ item }}
+    state: present
+  with_items:
+     - "{{ kb_list }}"
