@@ -1,9 +1,10 @@
 - name: Download KB
   win_get_url:
-    url: http://172.20.21.152:8080/win2012R2/Windows8.1-KB3172729-x64.msu
-    dest: '{{ item }}'
+    url: http://172.20.21.152:8080/win2012R2/'{{ item}}'
+    dest: C:\'{{ item }}'
   with_items:
-  - C:\Windows8.1-KB3172729-x64.msu
+  - Windows8.1-KB3172729-x64.msu
+  - windows8.1-kb3019978-x64_80f7b7e16ab31192c6a75ab632db254df8c83a2e.msu
 #- name: Install hotfix validating KB
 #  win_hotfix:
 #    hotfix_kb: KB3172729
