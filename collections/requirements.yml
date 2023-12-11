@@ -1,2 +1,5 @@
 collections:
-    - community.windows.win_hotfix
+    - name: community.windows.win_hotfix
+    version: 1.1.0
+    source: https://galaxy.ansible.com/
+    
