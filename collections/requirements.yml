@@ -2,5 +2,4 @@
 collections:
 - name: win_hotfix
 #  source: https://github.com/ansible-collections/community.windows
-  source: https://galaxy.ansible.com
-  type: git
+  source: https://172.20.21.152
