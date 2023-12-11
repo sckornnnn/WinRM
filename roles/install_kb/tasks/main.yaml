@@ -1,4 +1,3 @@
----
 #- include_tasks: download_kb.yaml
 #- include: download_kb.yaml
 #- include: Install_hotfix.yaml
@@ -11,4 +10,4 @@
     dest: C:\{{ item }}
   with_items:
      - "{{ kb_list }}"
-    register: output
+  register: output
