@@ -1,5 +1,4 @@
-collections:
-  - ansible.windows.win_reboot
+
 #- include_tasks: download_kb.yaml
 #- include: download_kb.yaml
 #- include: Install_hotfix.yaml
