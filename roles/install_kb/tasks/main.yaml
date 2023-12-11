@@ -1,7 +1,15 @@
 ---
 #- include_tasks: download_kb.yaml
-- include: download_kb.yaml
+#- include: download_kb.yaml
 #- include: Install_hotfix.yaml
-  with_items:
+#  with_items:
+#    - Windows8.1-KB3172729-x64.msu
+#    - windows8.1-kb3019978-x64_80f7b7e16ab31192c6a75ab632db254df8c83a2e.msu
+vars:
+  kb_list:
     - Windows8.1-KB3172729-x64.msu
     - windows8.1-kb3019978-x64_80f7b7e16ab31192c6a75ab632db254df8c83a2e.msu
+- name: Download hotfix  KB
+  win_get_url:
+    url: http://172.20.21.152:8080/win2012R2/{{ item }}
+    dest: C:\{{ item }}
