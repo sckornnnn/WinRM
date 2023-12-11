@@ -17,3 +17,7 @@
     state: present
   with_items:
      - "{{ kb_list }}"
+  register: hotfix_install
+
+- ansible.windows.win_reboot:
+  when: hotfix_install.reboot_required
