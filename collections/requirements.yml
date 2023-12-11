@@ -1,6 +1,5 @@
 ---
 collections:
 - name: win_hotfix
-#  source: https://github.com/ansible-collections/community.windows
-  source: http://172.20.21.152:8080/repo/
+  source: https://github.com/ansible-collections/community.windows
   type: git
