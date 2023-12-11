@@ -1,5 +1,5 @@
 collections:
-    - name: community.windows.win_hotfix
-    version: 1.1.0
-    source: https://galaxy.ansible.com/
-    
+  # Install a collection from Ansible Galaxy.
+  - name: community.aws
+    version: 5.2.0
+    source: https://galaxy.ansible.com
