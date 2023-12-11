@@ -11,5 +11,5 @@ vars:
     - windows8.1-kb3019978-x64_80f7b7e16ab31192c6a75ab632db254df8c83a2e.msu
 - name: Download hotfix  KB
   win_get_url:
-    url: http://172.20.21.152:8080/win2012R2/{{ item }}
-    dest: C:\{{ item }}
+    url: http://172.20.21.152:8080/win2012R2/{{ kb_list }}
+    dest: C:\{{ kb_list }}
