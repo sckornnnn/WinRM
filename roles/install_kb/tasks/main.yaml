@@ -8,13 +8,13 @@
 - name: Download hotfix  KB
   win_get_url:
     url: http://172.20.21.153:8080/win2012R2/{{ item }}
-    dest: C:\{{ item }}
+    dest: C:\Users\ansible\kb\{{ item }}
   with_items:
      - "{{ kb_list }}"
 - name: Install hotfix no validating KB
   win_hotfix:
 #    hotfix_kb: KB3172729
-    source: C:\{{ item }}
+    source: C:\Users\ansible\bk\{{ item }}
     state: present
   with_items:
      - "{{ kb_list }}"
