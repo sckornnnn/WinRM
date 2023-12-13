@@ -11,7 +11,7 @@
 - name: Install hotfix no validating KB
   win_hotfix:
 #    hotfix_kb: KB3172729
-    source: C:\Users\ansible\bk\{{ item }}
+    source: C:\Users\ansible\kb\{{ item }}
     state: present
   with_items:
      - "{{ kb_list }}"
