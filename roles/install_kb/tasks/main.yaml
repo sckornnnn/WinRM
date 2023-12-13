@@ -1,4 +1,4 @@
-- name: Create directory structure
+- name: Windows hotfix install
   win_file:
     path: C:\Users\ansible\kb
     state: directory
