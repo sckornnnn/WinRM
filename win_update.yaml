@@ -1,0 +1,6 @@
+---
+- name: Windows Update Search
+  hosts: all
+  become_method: runas
+  roles:
+    - win_update
