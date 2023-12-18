@@ -3,11 +3,11 @@ collections:
   - name: ansible.windows
     version: 2.2.0
   # see https://galaxy.ansible.com/chocolatey/chocolatey
-  - name: chocolatey.chocolatey
-    version: 1.5.1
+  #- name: chocolatey.chocolatey
+  #  version: 1.5.1
   # see https://galaxy.ansible.com/community/general
-  - name: community.general
-    version: 8.1.0
+  #- name: community.general
+  # version: 8.1.0
   # see https://galaxy.ansible.com/community/windows
   - name: community.windows
     version: 2.1.0
