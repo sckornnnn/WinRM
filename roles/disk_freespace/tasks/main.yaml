@@ -1,18 +1,11 @@
-- name: get disk free space
-  win_shell: Get-PsDrive c | ConvertTo-Json
-  register: output
+- name: check free disk space
+  hosts: all
+  tasks:
+    - name: 'Check free space in C:'
+      win_shell: 'write-host ([math]::Round((Get-PSDrive C | Select-Object Free).free / 1024 / 1024 / 1024,2))'
+      register: freespace
 
-- name: extract free space
-  set_fact:
-    free_json: "{{ output.stdout|from_json}}"
-
-- name:
-  debug:
-    var: free_json.Free
-
-- name: Gather disk facts
-  win_disk_facts:
-
-- name: Display disk free space
-  debug:
-    var: ansible_facts.win_disk_facts
+    - name: report free disk space
+      debug:
+        msg: |
+          "{{ freespace.stdout }} GB"
