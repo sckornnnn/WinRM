@@ -1,14 +1,12 @@
-- name: Check disk space on Windows
-      block:
-        - name: Check disk space on Windows
-          win_shell: Get-Volume | Select-Object -Property DriveLetter, FileSystemLabel, FileSystem, SizeRemaining, Size | ConvertTo-Csv -NoTypeInformation
-          register: windows_disk_space
-        - name: Print disk space on Windows
-          debug:
-            msg: "{{ windows_disk_space.stdout_lines }}"
-        - name: Write disk space to CSV file on Windows
-          local_action:
-            module: copy
-            content: "{{ windows_disk_space.stdout }}"
-            dest: "{{ inventory_hostname }}-disk-space.csv"
-      when: ansible_os_family == 'Windows'
+- name: Retrieve Disk Usage
+    win_shell: 'Get-PSDrive C | Select-Object Free'
+    register: rawcsize
+
+#  # Convert disk size in Gigabytes
+  - name: Convert system disk into various formats and export
+    vars:
+      disk_out_free: '{{ rawcsize.stdout[0] }}'
+      disk_int: '{{ rawcsize.stdout | int }}'
+      disk_gb: '{{ disk_int | int}}'
+    debug:
+      msg: 'rawcsize.stdout: {{(rawcsize.stdout)}} disk_out_free: {{(disk_out_free)}}  disk_int: {{(disk_int)}} disk_gb: {{(disk_gb)}}'
