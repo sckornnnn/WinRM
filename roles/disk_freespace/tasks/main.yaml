@@ -1,21 +1,14 @@
-- name: Get disk facts
-  community.windows.win_disk_facts:
-
-- name: Output first disk size
-  debug:
-    var: ansible_facts.disks[0].size
-
-- name: Convert first system disk into various formats
-  debug:
-    msg: '{{ disksize_gib }} vs {{ disksize_gib_human }}'
-  vars:
-    # Get first system disk
-    disk: '{{ ansible_facts.disks|selectattr("system_disk")|first }}'
-
-    # Show disk size in Gibibytes
-    disksize_gib_human: '{{ disk.size|filesizeformat(true) }}'   # returns "223.6 GiB" (human readable)
-    disksize_gib: '{{ (disk.size/1024|pow(3))|round|int }} GiB'  # returns "224 GiB" (value in GiB)
-
-    # Show disk size in Gigabytes
-    disksize_gb_human: '{{ disk.size|filesizeformat }}'        # returns "240.1 GB" (human readable)
-    disksize_gb: '{{ (disk.size/1000|pow(3))|round|int }} GB'  # returns "240 GB" (value in GB)
+- name: Check disk space on Windows
+      block:
+        - name: Check disk space on Windows
+          win_shell: Get-Volume | Select-Object -Property DriveLetter, FileSystemLabel, FileSystem, SizeRemaining, Size | ConvertTo-Csv -NoTypeInformation
+          register: windows_disk_space
+        - name: Print disk space on Windows
+          debug:
+            msg: "{{ windows_disk_space.stdout_lines }}"
+        - name: Write disk space to CSV file on Windows
+          local_action:
+            module: copy
+            content: "{{ windows_disk_space.stdout }}"
+            dest: "{{ inventory_hostname }}-disk-space.csv"
+      when: ansible_os_family == 'Windows'
