@@ -1,0 +1,6 @@
+- name: Get disk facts
+  community.windows.win_disk_facts:
+
+- name: Output first disk size
+  debug:
+    var: ansible_facts.disks[0].size
