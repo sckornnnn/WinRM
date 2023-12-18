@@ -9,3 +9,10 @@
 - name:
   debug:
     var: free_json.Free
+
+- name: Gather disk facts
+  win_disk_facts:
+
+- name: Display disk free space
+  debug:
+    var: ansible_facts.win_disk_facts
